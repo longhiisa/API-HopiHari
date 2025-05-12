@@ -9,13 +9,12 @@ exports.atualizarUsuario = async (req, res) => {
     const resultado = await mysql.execute(
       `UPDATE users
          SET first_name = ?,
-             last_name = ?,  -- Corrigido de last_email para last_name
+             last_name = ?,  
              email = ?,
              password = ?,
              birth_date = ?,
              phone = ?
-       WHERE id = ?`,       // Removida vírgula antes do WHERE
-
+       WHERE id = ?`,      
       [
         req.body.first_name,
         req.body.last_name,
@@ -57,7 +56,7 @@ exports.cadastrarUsuario = async (req, res) => {
       Resultado: resultado
     });
   } catch (error) {
-    return res.status(500).send({ Mensagem: error.message });
+    return res.status(500).send({ "Mensagem": error.message });
   }
 };
 
@@ -68,7 +67,7 @@ exports.login = async (req, res) => {
       [req.body.email]
     );
 
-    if (usuario.length === 0) {
+    if (usuario.length == 0) {
       return res.status(401).send({ Mensagem: "Usuário não cadastrado" });
     }
 

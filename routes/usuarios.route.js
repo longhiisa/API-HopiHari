@@ -9,7 +9,3 @@ router.put('/:id' , usuariosController.atualizarUsuario);
 
 
 module.exports = router;
-
-
-
-
