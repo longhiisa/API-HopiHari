@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken");
 exports.required = async (req, res, next) => {
     try {
         res.locals.idUsuario = 0;
-
+        console.log(req.headers.authorization);
         const token = req.headers.authorization.split(" ")[1];
         const decode = jwt.decode(token, "senhadojwt");
 
