@@ -31,7 +31,7 @@ exports.atualizarUsuario = async (req, res) => {
       Resultado: resultado
     });
   } catch (error) {
-    return res.status(500).send({ Mensagem: error.message }); // Usei error.message para uniformidade
+    return res.status(500).send(error); 
   }
 };
 
@@ -56,7 +56,7 @@ exports.cadastrarUsuario = async (req, res) => {
       Resultado: resultado
     });
   } catch (error) {
-    return res.status(500).send({ "Mensagem": error.message });
+    return res.status(500).send(error);
   }
 };
 
@@ -68,13 +68,13 @@ exports.login = async (req, res) => {
     );
 
     if (usuario.length == 0) {
-      return res.status(401).send({ Mensagem: "Usuário não cadastrado" });
+      return res.status(401).send(error);
     }
 
     const match = await bcrypt.compare(req.body.password, usuario[0].password);
 
     if (!match) {
-      return res.status(401).send({ Mensagem: "Senha incorreta" });
+      return res.status(401).send(error);
     }
 
     const token = jwt.sign({
@@ -92,6 +92,6 @@ exports.login = async (req, res) => {
     });
 
   } catch (error) {
-    return res.status(500).send({ Mensagem: error.message });
+    return res.status(500).send(error);
   }
 };
