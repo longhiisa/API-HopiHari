@@ -89,7 +89,7 @@ exports.login = async (req, res) => {
 
     return res.status(200).send({
       "Mensagem": "Usuário autenticado com sucesso",
-      "token": "token",
+      "token": token,
       "user":{
         first_name: usuario[0].first_name,
       last_name: usuario[0].last_name,
