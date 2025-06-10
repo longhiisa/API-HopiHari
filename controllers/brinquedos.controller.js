@@ -22,7 +22,7 @@ exports.cadastrarBrinquedo = async (req, res) => {
 };
 
 
-exports.getBrinquedosByAreaName = async(req, res) => {
+exports.getBrinquedosByAreaName = async (req, res) => {
     try {
         resultados = await mysql.execute(`
              SELECT * FROM rides WHERE id_areas = (

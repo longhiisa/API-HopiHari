@@ -12,7 +12,7 @@ router.post("/",
 
 router.get("/area/:areaName", 
     login.required,
-brinquedosController.getBrinquedosByAreaName
+    brinquedosController.getBrinquedosByAreaName
 );
 
 module.exports = router;
